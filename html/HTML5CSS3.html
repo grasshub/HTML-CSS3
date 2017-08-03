@@ -9,42 +9,41 @@
 </head>
 
 <body>
-    <div>
+
+    <div class="redDiv">
         A div tag with a CSS selector applied to it.
     </div>
 
-    <p>Click the button to get your coordinates.</p>
+    <div>
+        <p>Click the button to get your coordinates.</p>
 
-    <button onclick="getLocation()">Try it</button>
+        <button onclick="getLocation()">Try it</button>
 
-    <p><strong>Note: </strong> The geolocation property is not supported in IE8 and earlier versions</p>
+        <p><strong>Note: </strong> The geolocation property is not supported in IE8 and earlier versions</p>
 
-    <p id="location"></p>
+        <p id="location"></p>
 
-    <script>
-        var location = document.getElementById("location");
+        <script>
+            var loc = document.getElementById("location");
 
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(getCurrentPositionCallback);
-            } else {
-                location.innerHTML = "Geolocation is not supported by this browser!"
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(getCurrentPositionCallback);
+                } else {
+                    loc.innerHTML = "Geolocation is not supported by this browser!";
+                }
             }
-        }
 
-        function getCurrentPositionCallback(position) {
-            var coords = position.coords;
-            var longitude = coords.longitude;
-            var latitude = coords.latitude;
-            var speed = coords.speed;
-            var altitude = coords.altitude;
+            function getCurrentPositionCallback(position) {
+                loc.innerHTML = "Latitude: " + position.coords.latitude +
+                    "<br>Longitude: " + position.coords.longitude +
+                    "<br>Speed: " + position.coords.speed +
+                    "<br>Altitude: " + position.coords.altitude +
+                    "<br>Accuracy: " + position.coords.accuracy;
+            }
+        </script>
 
-            location.innerHTML = "Latitude: " + latitude +
-                "<br>Longitude: " + longitude +
-                "<br>Speed: " + speed +
-                "<br>Altitude: " + altitude;
-        }
-    </script>
+    </div>
 </body>
 
 </html>
