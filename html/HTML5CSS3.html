@@ -10,6 +10,18 @@
 
 <body>
 
+    <div>
+        <button id="hellobutton">Hello</button>
+        <script>
+            document.getElementById("hellobutton").onclick = function() {
+                alert("Hello World!");
+                var myTextNode = document.createTextNode("Some new words.");
+                // Append “Some new words.” to the page.
+                document.body.appendChild(myTextNode); 
+            };
+        </script>
+    </div>
+
     <div class="redDiv">
         A div tag with a CSS selector applied to it.
     </div>
