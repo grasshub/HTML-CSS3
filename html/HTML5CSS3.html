@@ -1,61 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
     <title>HTML5 CSS3 Features</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
 
 <body>
 
-    <div>
-        <button id="hellobutton">Hello</button>
-        <script>
-            document.getElementById("hellobutton").onclick = function() {
-                alert("Hello World!");
-                var myTextNode = document.createTextNode("Some new words.");
-                // Append “Some new words.” to the page.
-                document.body.appendChild(myTextNode); 
-            };
-        </script>
-    </div>
+<div>
+  <button id="helloButton">Hello</button>
+</div>
 
-    <div class="redDiv">
-        A div tag with a CSS selector applied to it.
-    </div>
+<div class="redDiv">
+  A div tag with a CSS selector applied to it.
+</div>
 
-    <div>
-        <p>Click the button to get your coordinates.</p>
+<div id="geoLocation">
+  <p>Click the button to get your coordinates.</p>
+  <button id="locationButton">Try it</button>
 
-        <button onclick="getLocation()">Try it</button>
+  <p><strong>Note: </strong>The geolocation property is not supported in IE8 and earlier versions</p>
+  <p id="location"></p>
 
-        <p><strong>Note: </strong> The geolocation property is not supported in IE8 and earlier versions</p>
+  <script src = "../js/process-page.js"></script>
+</div>
 
-        <p id="location"></p>
-
-        <script>
-            var loc = document.getElementById("location");
-
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(getCurrentPositionCallback);
-                } else {
-                    loc.innerHTML = "Geolocation is not supported by this browser!";
-                }
-            }
-
-            function getCurrentPositionCallback(position) {
-                loc.innerHTML = "Latitude: " + position.coords.latitude +
-                    "<br>Longitude: " + position.coords.longitude +
-                    "<br>Speed: " + position.coords.speed +
-                    "<br>Altitude: " + position.coords.altitude +
-                    "<br>Accuracy: " + position.coords.accuracy;
-            }
-        </script>
-
-    </div>
 </body>
 
 </html>
