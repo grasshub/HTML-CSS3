@@ -30,4 +30,4 @@
         "<br>Accuracy: " + position.coords.accuracy;
     }
 
-}
+};
