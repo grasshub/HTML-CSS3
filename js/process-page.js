@@ -1,6 +1,6 @@
 {
     "use strict";
-    // Add listener
+    // Add listener again
     document.getElementById("helloButton").addEventListener( "click", function() {
         alert("Hello World!");
         const myTextNode = document.createTextNode("Some new words.");
